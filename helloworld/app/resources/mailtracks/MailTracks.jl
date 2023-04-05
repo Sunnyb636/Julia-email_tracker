@@ -9,6 +9,7 @@ export MailTrack
   id::DbId = DbId()
   mail::String = ""
   name::String = ""
+  counts::Integer = 0
 
 end
 

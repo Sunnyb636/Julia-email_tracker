@@ -7,14 +7,17 @@ end
 using MailTracks
 
 route("/mail") do
-  #serve_static_file("emai.html")
   q = payload(:mail)
   f = payload(:name)
 
-  c = MailTrack(mail=q,name=f)
-  #d = find(Mailtrack,mail=q)
+ 
+  c = findfirst(MailTrack, mail = q)
 
-
-  save(c)
+  if isnothing(c) 
+    c = MailTrack(mail=q, name=f, counts=1)
+    save(c)
+  else 
+    c.counts += 1
+    update!(c)
+  end
 end
-
