@@ -11,13 +11,13 @@ route("/mail") do
   f = payload(:name)
 
  
-  c = findfirst(MailTrack, mail = q)
+  c = findone(MailTrack, mail = q)
 
   if isnothing(c) 
     c = MailTrack(mail=q, name=f, counts=1)
     save(c)
   else 
     c.counts += 1
-    update!(c)
+    save(c)
   end
 end

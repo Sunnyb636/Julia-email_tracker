@@ -7,8 +7,9 @@ MailTrack()
 a=MailTrack(name="sunny")
 save(a)
 
-find(MailTrack,id=5)
+find(MailTrack,mail="abcd@example.com")
 
 
 SearchLight.Migration.last_up()
 SearchLight.Migration.down()
+MailTrack()
