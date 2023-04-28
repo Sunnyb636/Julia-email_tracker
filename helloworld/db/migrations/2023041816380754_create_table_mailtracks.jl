@@ -6,15 +6,15 @@ function up()
   create_table(:mailtracks) do
     [
       pk()
-      column(:mail, :string)
-      column(:name, :string)
-      column(:counts, :integer)
-   
-  
-     
+      column(:column_name, :column_type)
+      columns([
+        :column_name => :column_type
+      ])
     ]
   end
 
+  add_index(:mailtracks, :column_name)
+  add_indices(:mailtracks, :column_name_1, :column_name_2)
 end
 
 function down()

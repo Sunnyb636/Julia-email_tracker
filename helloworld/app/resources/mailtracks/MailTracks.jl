@@ -10,6 +10,7 @@ export MailTrack
   mail::String = ""
   name::String = ""
   counts::Integer = 0
+  
 
 end
 
